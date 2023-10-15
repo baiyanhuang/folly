@@ -32,3 +32,10 @@ folly/m4/lt~obsolete.m4
 folly/generate_fingerprint_tables
 folly/FingerprintTables.cpp
 _build
+
+.idea
+.cache
+compile_commands.json
+build-cmd
+build-vscode
+build-clion

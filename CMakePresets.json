@@ -1,0 +1,51 @@
+{
+  "version": 2,
+  "configurePresets": [
+    {
+      "name": "default",
+      "displayName": "Default Config",
+      "description": "DEVNOTE(byh): 1) copy folly native-devenv container; 2) copy this file to new folly/ 3) Align build options below with build_from_src.sh 4) Reopen workspace if presets can't be recognized",
+      "generator": "Ninja",
+      "binaryDir": "./build-vscode/${presetName}",
+      "cacheVariables": {
+        "CMAKE_FIND_DEBUG_MODE": "OFF",
+        "CMAKE_INSTALL_PREFIX": "./build-vscode/${presetName}",
+        "CMAKE_CXX_COMPILER_LAUNCHER": "ccache",
+        "CMAKE_EXPORT_COMPILE_COMMANDS": "ON",
+        "BUILD_SHARED_LIBS": "OFF",
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_PREFIX_PATH": "/usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0",
+        "BOOST_LINK_STATIC": "ON",
+        "CMAKE_DISABLE_FIND_PACKAGE_LibDwarf": "ON",
+        "CMAKE_DISABLE_FIND_PACKAGE_Libiberty": "ON",
+        "CMAKE_DISABLE_FIND_PACKAGE_LibAIO": "ON",
+        "LIBAIO_FOUND": "OFF",
+        "LIBURCU_FOUND": "OFF",
+        "CMAKE_DISABLE_FIND_PACKAGE_LibURCU": "ON",
+        "BUILD_DEPS": "OFF",
+        "BUILD_TESTS": "ON",
+        "BUILD_BENCHMARKS": "OFF"
+      },
+      "vendor": {
+        "jetbrains.com/clion": {
+          "toolchain": "Remote Host"
+        }
+      }
+    },
+    {
+      "name": "debug-clang15",
+      "inherits": "default",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_C_COMPILER": "clang",
+        "CMAKE_CXX_COMPILER": "clang++"
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "debug-clang15",
+      "configurePreset": "debug-clang15"
+    }
+  ]
+}

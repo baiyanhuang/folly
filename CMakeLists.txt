@@ -1143,3 +1143,6 @@ if (BUILD_TESTS OR BUILD_BENCHMARKS)
 endif()
 
 add_subdirectory(folly)
+
+add_subdirectory(experiments)
+file(CREATE_LINK ${CMAKE_CURRENT_BINARY_DIR}/compile_commands.json ${CMAKE_CURRENT_SOURCE_DIR}/compile_commands.json SYMBOLIC) # for IDE intellisense
